@@ -4,6 +4,7 @@
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=2]
 [ext_resource path="res://resources/landscape_data/data.hterrain" type="Resource" id=3]
 [ext_resource path="res://textures/hdri/fouriesburg_mountain_midday_4k.exr" type="Texture" id=4]
+[ext_resource path="res://resources/materials/ocean_water.tres" type="Material" id=5]
 
 [sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 4 )
@@ -24,12 +25,11 @@ script = ExtResource( 2 )
 mode = 0
 textures = [ [  ], [  ] ]
 
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.423529, 0.560784, 0.713726, 1 )
-
 [sub_resource type="PlaneMesh" id=5]
-material = SubResource( 6 )
-size = Vector2( 2048, 2048 )
+material = ExtResource( 5 )
+size = Vector2( 128, 128 )
+subdivide_width = 256
+subdivide_depth = 256
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -48,10 +48,9 @@ shadow_color = Color( 0.388235, 0.388235, 0.388235, 1 )
 [node name="HTerrain" type="Spatial" parent="Landscape"]
 script = ExtResource( 1 )
 lod_scale = 3.0
-map_scale = Vector3( 0.5, 0.5, 0.5 )
 centered = true
 _terrain_data = ExtResource( 3 )
-chunk_size = 32
+chunk_size = 64
 collision_enabled = true
 collision_layer = 1
 collision_mask = 1
@@ -65,10 +64,518 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="Water" type="MeshInstance" parent="Landscape"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9052, 0 )
+[node name="Water" type="Spatial" parent="Landscape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.0212, 0 )
+
+[node name="Waterplane" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6478, -410 )
 mesh = SubResource( 5 )
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
+
+[node name="Waterplane2" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane3" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane12" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane4" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane5" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane6" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane7" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane8" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane9" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane10" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane11" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane13" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane14" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane15" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane16" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane17" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane18" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane19" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane20" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane21" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane22" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane23" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane24" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane25" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane26" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane27" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane28" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane29" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane30" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane31" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane32" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane33" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane34" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane35" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane36" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane37" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane38" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane39" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane40" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane41" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane42" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane43" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane44" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane45" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane46" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane47" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane61" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane48" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane49" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane50" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane51" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane52" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane53" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane62" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane54" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, 358 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane55" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane56" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane57" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, 486 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane58" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane59" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane60" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, 614 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane63" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane64" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane65" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -26 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane66" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane67" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane68" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, 102 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane69" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane70" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane71" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, 230 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane72" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane73" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane74" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane75" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane76" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane77" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane102" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, -282 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane78" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane79" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane80" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -154 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane81" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane82" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane83" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, -410 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane90" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane91" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane92" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane93" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane94" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -384, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane95" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane96" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 128, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane97" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane98" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 256, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane99" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 512, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane100" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 384, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane101" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 640, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane84" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane85" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane86" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -666 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane87" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -768, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane88" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -640, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
+
+[node name="Waterplane89" type="MeshInstance" parent="Landscape/Water"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -512, 15.6478, -538 )
+mesh = SubResource( 5 )
+skeleton = NodePath("../../..")
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
