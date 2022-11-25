@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 4096,
+	"src": {
+		"a": "#ff888888",
+		"rgb": "res://textures/coast_sand_02_4k/coast_sand_02_diff_4k.jpg"
+	}
+}

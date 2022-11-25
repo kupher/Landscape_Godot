@@ -1,0 +1,8 @@
+{
+	"contains_albedo": false,
+	"resolution": 4096,
+	"src": {
+		"a": "#ffffffff",
+		"rgb": "res://textures/coast_sand_02_4k/coast_sand_02_nor_gl_4k.jpg"
+	}
+}
